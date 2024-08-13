@@ -19,7 +19,7 @@ return new class extends Migration
 
         DB::statement(
             'CREATE TABLE faqs (
-                id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 question TEXT NOT NULL,
                 answer TEXT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
