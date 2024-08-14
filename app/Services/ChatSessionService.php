@@ -24,12 +24,21 @@ class ChatSessionService
 
     public function startNewChatSession()
     {
+        $lastSession = DB::selectOne(
+            'SELECT id
+            FROM chat_sessions
+            ORDER BY id DESC
+            LIMIT 1'
+        );
+
+        $newTitle = $lastSession ? "Title " . $lastSession->id + 1 : "Title 1";
+
         DB::insert(
             'INSERT INTO chat_sessions (title)
             VALUES (:title)
             ',
             [
-                'title' => null
+                'title' => $newTitle
             ]
         );
 
