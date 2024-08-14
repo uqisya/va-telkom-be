@@ -112,7 +112,9 @@ va-telkom-be/
 
 4. **Konfigurasi Database**:
 
-    Pada bagian ini di `.env`, atur DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD.
+    Pada bagian ini di `.env`, atur `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`.
+    Pastikan anda telah membuat nama database sesuai dengan `DB_DATABASE`. Anda bisa gunakan client app seperti [DBeaver](https://dbeaver.io/), [Laragon](https://laragon.org/download/), ataupun [XAMPP](https://www.apachefriends.org/download.html).
+   
     Default:
    ```plaintext
     DB_CONNECTION=mysql
@@ -123,19 +125,19 @@ va-telkom-be/
     DB_PASSWORD=
    ```
 
-5. **Generate Application Key**:
+6. **Generate Application Key**:
 
     ```bash
     php artisan key:generate
     ```
 
-6. **Migrasi dan Seed Database**:
+7. **Migrasi dan Seed Database**:
 
     ```bash
     php artisan migrate --seed
     ```
 
-7. **Jalankan Aplikasi**:
+8. **Jalankan Aplikasi**:
 
     ```bash
     php artisan serve
