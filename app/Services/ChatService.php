@@ -7,20 +7,19 @@ use Illuminate\Support\Facades\DB;
 class ChatService
 {
 
-    public function getFirstChatByChatSessionID($chatSessionID)
+    public function getAllChatByChatSessionID($chatSessionID)
     {
-        $firstChat = DB::selectOne(
+        $allChat = DB::select(
             'SELECT id, chat_session_id, fullname, message, created_at
             FROM chats
             WHERE chat_session_id = :chat_session_id
-            LIMIT 1
             ',
             [
                 'chat_session_id' => $chatSessionID
             ]
         );
 
-        return $firstChat;
+        return $allChat;
     }
 
     public function createNewMessage($chatSessionID, $fullname, $message)

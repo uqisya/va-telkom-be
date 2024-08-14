@@ -16,6 +16,6 @@ Route::group(['prefix' => 'chats'], function () {
     Route::get('/', [ChatSessionController::class, 'getAllChatSessions']);
     Route::post('/', [ChatSessionController::class, 'startNewChatSession']);
 
-    Route::get('/{chatSessionID}', [ChatController::class, 'getFirstChatByChatSessionID']);
+    Route::get('/{chatSessionID}', [ChatController::class, 'getAllChatByChatSessionID']);
     Route::post('/{chatSessionID}', [ChatController::class, 'createNewMessage']);
 });

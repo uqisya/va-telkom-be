@@ -20,13 +20,13 @@ class ChatController
         $this->chatService = $chatService;
     }
 
-    public function getFirstChatByChatSessionID($chatSessionID)
+    public function getAllChatByChatSessionID($chatSessionID)
     {
-        $firstChatData = $this->chatService->getFirstChatByChatSessionID($chatSessionID);
+        $allChatData = $this->chatService->getAllChatByChatSessionID($chatSessionID);
 
         return $this->apiResponse->successResponse(
-            message: "Success get first chat.",
-            data: new ChatResource($firstChatData),
+            message: "Success get all chat.",
+            data: ChatResource::collection($allChatData),
             codeResponse: 200,
         );
     }
