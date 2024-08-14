@@ -99,6 +99,7 @@ va-telkom-be/
 
 2. **Install dependensi**:
 
+    Open Terminal
     ```bash
     composer install
     ```
