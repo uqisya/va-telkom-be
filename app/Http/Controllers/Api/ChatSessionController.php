@@ -6,6 +6,13 @@ use App\Helpers\ApiResponseHelper;
 use App\Http\Resources\ChatSessionResource;
 use App\Services\ChatSessionService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
+/*
+    ChatSessionController -> class untuk menghandle request API terkait ChatSession
+    - getAllChatSessions -> method untuk mendapatkan semua list chat sessions
+    - startNewChatSession -> method untuk membuat chat session baru, kemudian return chat session yang baru dibuat
+*/
 
 class ChatSessionController
 {
@@ -19,9 +26,22 @@ class ChatSessionController
         $this->chatSessionService = $chatSessionService;
     }
 
+    // method untuk mendapatkan semua list chat sessions
     public function getAllChatSessions()
     {
-        $chatSessionsData = $this->chatSessionService->getAllChatSessions();
+        try {
+            // return array object chat sessions
+            $chatSessionsData = $this->chatSessionService->getAllChatSessions();
+        } catch (\Exception $e) {
+            Log::error('Error occurred in getAllChatSessions chatSessionService', [
+                'exception' => $e->getMessage(),
+            ]);
+            return $this->apiResponse->errorResponse(
+                message: "Failed get all chat sessions.",
+                errors: [],
+                codeResponse: 500,
+            );
+        }
 
         return $this->apiResponse->successResponse(
             message: "Success get all chat sessions.",
@@ -30,54 +50,27 @@ class ChatSessionController
         );
     }
 
+    // method untuk membuat chat session baru, kemudian return chat session yang baru dibuat
     public function startNewChatSession()
     {
-        $currentSessionData = $this->chatSessionService->startNewChatSession();
+        try {
+            // return chat session object yang baru dibuat
+            $currentSessionData = $this->chatSessionService->startNewChatSession();
+        } catch (\Exception $e) {
+            Log::error('Error occurred in startNewChatSession chatSessionService', [
+                'exception' => $e->getMessage(),
+            ]);
+            return $this->apiResponse->errorResponse(
+                message: "Failed create new chat session.",
+                errors: [],
+                codeResponse: 500,
+            );
+        }
 
         return $this->apiResponse->successResponse(
             message: "Success created new chat session",
             data: new ChatSessionResource($currentSessionData),
             codeResponse: 201,
         );
-    }
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

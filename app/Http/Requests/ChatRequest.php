@@ -38,7 +38,7 @@ class ChatRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         return $this->apiResponse->errorResponse(
-            message: "Validation error.",
+            message: "Required message or fullname.",
             errors: $validator->errors()->toArray(),
             codeResponse: 400,
         );

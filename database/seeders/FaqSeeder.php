@@ -16,15 +16,15 @@ class FaqSeeder extends Seeder
         $faqs = [
             [
                 'question' => 'Apa itu Telkom Indonesia?',
-                'answer' => 'Telkom Indonesia adalah perusahaan telekomunikasi terbesar di Indonesia.'
+                'answer' => 'Telkom Indonesia, atau PT Telekomunikasi Indonesia (Persero) Tbk, adalah perusahaan telekomunikasi dan jaringan terbesar di Indonesia.'
             ],
             [
                 'question' => 'Kapan Telkom Indonesia berdiri?',
-                'answer' => 'Telkom Indonesia berdiri pada tanggal 6 Mei 1991.'
+                'answer' => 'Telkom Indonesia didirikan pada tanggal 6 Juli 1965. Awalnya, perusahaan ini beroperasi sebagai bagian dari Direktorat Pos dan Telekomunikasi Indonesia dan kemudian menjadi entitas terpisah dengan fokus pada layanan telekomunikasi. '
             ],
             [
                 'question' => 'Bagaimana cara daftar di Telkom University?',
-                'answer' => 'Anda bisa mendaftar di Telkom University melalui website resmi Telkom University. https://smb.telkomuniversity.ac.id'
+                'answer' => 'Anda dapat melakukan pendaftaran melalui situs resmi Telkom University: https://smb.telkomuniversity.ac.id'
             ],
         ];
 

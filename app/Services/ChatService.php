@@ -7,6 +7,22 @@ use Illuminate\Support\Facades\DB;
 class ChatService
 {
 
+    public function isChatSessionExist($chatSessionID)
+    {
+        $chatSession = DB::selectOne(
+            'SELECT id
+            FROM chat_sessions
+            WHERE id = :chat_session_id
+            ',
+            [
+                'chat_session_id' => $chatSessionID
+            ]
+        );
+        if ($chatSession === null) {
+            throw new \Exception("Chat session not found.");
+        }
+    }
+
     public function getAllChatByChatSessionID($chatSessionID)
     {
         $allChat = DB::select(

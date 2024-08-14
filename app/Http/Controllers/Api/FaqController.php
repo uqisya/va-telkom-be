@@ -9,6 +9,12 @@ use App\Http\Resources\FaqResource;
 use App\Models\Faq;
 use App\Services\FaqService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
+/*
+    FaqController -> class untuk menghandle request API terkait Faq
+    - getAllFaq -> method untuk mendapatkan semua list faq
+*/
 
 class FaqController
 {
@@ -22,54 +28,29 @@ class FaqController
         $this->faqService = $faqService;
     }
 
+    // method untuk mendapatkan semua list faq
     public function getAllFaq()
     {
-        $listFaq = $this->faqService->getAllFaq();
+        try {
+            // return array object faq
+            $listFaq = $this->faqService->getAllFaq();
+        } catch (\Exception $e) {
+            Log::error('Error occurred in getAllFaq faqService', [
+                'exception' => $e->getMessage(),
+            ]);
+            // return response API dengan format error
+            return $this->apiResponse->errorResponse(
+                message: "Failed to retrieve FAQs.",
+                errors: [],
+                codeResponse: 500,
+            );
+        }
 
+        // return response API dengan format data FaqResource
         return $this->apiResponse->successResponse(
             message: "Success Get All Faq List",
             data: FaqResource::collection($listFaq),
             codeResponse: 200,
         );
-    }
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Faq $faq)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Faq $faq)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Faq $faq)
-    {
-        //
     }
 }
