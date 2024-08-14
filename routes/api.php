@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\ChatSessionController;
 use App\Http\Controllers\Api\FaqController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use OpenAI\Laravel\Facades\OpenAI;
 
 // get all faqs
 Route::get('faqs', [FaqController::class, 'getAllFaq']);
@@ -21,3 +22,17 @@ Route::group(['prefix' => 'chats'], function () {
     // create new message in the chat session
     Route::post('/{chatSessionID}', [ChatController::class, 'createNewMessage']);
 });
+
+// Route::get('/openai', function () {
+//     $result = OpenAI::chat()->create([
+//         'model' => 'gpt-3.5-turbo',
+//         'messages' => [
+//             [
+//                 'role' => 'user',
+//                 'content' => ''
+//             ],
+//         ],
+//     ]);
+
+//     echo $result->choices[0]->message->content;
+// });
