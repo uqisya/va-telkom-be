@@ -42,9 +42,18 @@ Detail dokumentasi API ada pada Postman Doc [di sini](https://documenter.getpost
   - `GET /chats/{chatSessionID}`: Mendapatkan seluruh isi chat/pesan yang ada pada chat session tersebut.
   - `POST /chats/{chatSessionID}`: Mengirimkan pesan ke chat session tersebut.
 
+## Database
+
+<img src="https://github.com/user-attachments/assets/4e89016c-e4bc-4008-a79e-dccb696a6091" alt="image" width="400"/> 
+
+
 ## Project Structure
 
 Laravel umumnya menggunakan architectural pattern [MVC (Model View Controller)](https://developer.mozilla.org/en-US/docs/Glossary/MVC)
+
+Urutan eksekusi end point:
+
+Route -> Controller -> Request (bila ada) -> Service -> (kembali ke Controller) -> Return response (Resource)
 
 `<---`: folder yang sering digunakan
 ```plaintext
