@@ -10,7 +10,9 @@ class FaqService
     {
         $listFaq = DB::select(
             'SELECT id, question, answer
-            FROM faqs'
+            FROM faqs
+            LIMIT 3
+            '
         );
 
         return $listFaq;
