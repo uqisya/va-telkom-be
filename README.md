@@ -31,6 +31,8 @@ Detail dokumentasi API ada pada Postman Doc [di sini](https://documenter.getpost
 
 ## Features
 
+Video installasi dan demo: [https://youtu.be/xHPWKrdYfGU](https://youtu.be/xHPWKrdYfGU)
+
 Detail dokumentasi API ada pada Postman Doc [di sini](https://documenter.getpostman.com/view/36842696/2sA3s6GA15)
 
 - **FAQ:**
@@ -97,6 +99,8 @@ va-telkom-be/
 
 
 ## Instalasi
+
+Video installasi dan demo: [https://youtu.be/xHPWKrdYfGU](https://youtu.be/xHPWKrdYfGU)
 
 1. **Clone Repository**:
 
