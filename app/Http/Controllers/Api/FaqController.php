@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 class FaqController
 {
 
-    protected $apiResponse;
-    protected $faqService;
+    private $apiResponse;
+    private $faqService;
 
     public function __construct(ApiResponseHelper $apiResponse, FaqService $faqService)
     {
