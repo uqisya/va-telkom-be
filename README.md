@@ -31,6 +31,8 @@ Detail dokumentasi API ada pada Postman Doc [di sini](https://documenter.getpost
 
 ## Features
 
+Detail dokumentasi API ada pada Postman Doc [di sini](https://documenter.getpostman.com/view/36842696/2sA3s6GA15)
+
 - **FAQ:**
   - `GET /faqs`: Mendapatkan list questions yang sudah didefinisikasn sebelumnya di database.
 - **Chat Session:**
