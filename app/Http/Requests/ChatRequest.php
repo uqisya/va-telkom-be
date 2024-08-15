@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Helpers\ApiResponseHelper;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class ChatRequest extends FormRequest
 {
@@ -37,10 +38,12 @@ class ChatRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        return $this->apiResponse->errorResponse(
+        $response =  $this->apiResponse->errorResponse(
             message: "Required message or fullname.",
             errors: $validator->errors()->toArray(),
             codeResponse: 400,
         );
+
+        throw new ValidationException($validator, $response);
     }
 }
